@@ -230,13 +230,13 @@
                 We look forward to working with you to create a website that showcases your brand and helps you achieve your goals.
               </p>
             </v-col>
-            <v-col cols="12" sm="4">
+            <!-- <v-col cols="12" sm="4">
               <v-btn color="#2288f5" class="mt-15">Hire Us</v-btn>
-            </v-col>
+            </v-col> -->
           </v-row>
         </div>
       </v-col>
-      <v-col cols="12" sm="12" class="px-16" id="contact">
+      <!-- <v-col cols="12" sm="12" class="px-16" id="contact">
         <v-row>
           <v-col cols="12" sm="4">
             <div class="child">
@@ -309,7 +309,7 @@
           </v-col>
         </v-row>
         
-      </v-col>
+      </v-col> -->
     </v-container>
     <FooterView />
     <v-btn fab bottom right class="scroll-top-button" @click="scrollToTop">
@@ -318,22 +318,24 @@
   </v-app>
 </template>
 
-
-
 <script>
-import { defineComponent } from "vue";
-import NavBar from "../components/NavBar.vue";
-import FooterView from "../components/FooterView.vue";
+  import { defineComponent } from "vue";
+  import NavBar from "../components/NavBar.vue";
+  import FooterView from "../components/FooterView.vue";
 
-export default defineComponent({
-  name: "HomeView",
-  components: {
-    NavBar,
-    FooterView
-  },
-  setup() {
+  export default defineComponent({
+    name: "HomeView",
+    components: {
+      NavBar,
+      FooterView
+    },
     
-    return {
+  created() {
+    document.title = 'ZOLENA';
+  },
+  
+    setup() {
+      return {
       
       slider2: 50,
 
@@ -357,107 +359,20 @@ export default defineComponent({
           img: "i.8.jpg",
         },
       ],
-    };
-  },
-//   setup() {
-    
-    
-//     const items = [
-//       {
-//         img: "i.3.png",
-//       },
-//       {
-//         img: "i.4.png",
-//       },
-//       {
-//         img: "i.5.png",
-//       },
-//       {
-//         img: "i.6.jpg",
-//       },
-//       {
-//         img: "i.9.jpg",
-//       },
-//       {
-//         img: "i.8.jpg",
-//       },
-//       {
-//         img: "i.13.png",
-//       },
-//       {
-//         img: "i.14.png",
-//       },
-//       {
-//         img: "i.15.png",
-//       },
-//     ];
-//     const displayedItems = ref(items.slice(0, 3));
-
-// const loadMore = () => {
-//   const startIndex = displayedItems.value.length;
-//   const endIndex = startIndex + 3;
-//   displayedItems.value = displayedItems.value.concat(items.slice(startIndex, endIndex));
-// };
-
-// return {
-//   slider2: 50,
-//   displayedItems,
-//   loadMore,
-// };
-//   },
-  // data() {
-  //   return {
-  //     selectedCategory: "all",
-  //     slider2: 50,
-  //     items: [
-  //       {
-  //         img: "i.3.png",
-  //         category: "web",
-  //       },
-  //       {
-  //         img: "i.4.png",
-  //         category: "front",
-  //       },
-  //       {
-  //         img: "i.5.png",
-  //         category: "web",
-  //       },
-  //       {
-  //         img: "i.6.jpg",
-  //         category: "product",
-  //       },
-  //       {
-  //         img: "i.9.jpg",
-  //         category: "front",
-  //       },
-  //       {
-  //         img: "i.8.jpg",
-  //         category: "web",
-  //       },
-  //     ],
-  //   };
-  // },
-  // computed: {
-  //   filteredItems() {
-  //     if (this.selectedCategory === "all") {
-  //       return this.items; // Отобразить все проекты
-  //     } else {
-  //       return this.items.filter(item => item.category === this.selectedCategory); // Фильтровать проекты по категории
-  //     }
-  //   },
-  // },
+      };
+    },
+  
   methods: {
-    // filterProjects(category) {
-    //   this.selectedCategory = category;
-    // },
+    
     scrollToTop() {
       window.scrollTo({
         top: 0,
         behavior: "smooth"
       });
     },
+
     downloadPDF() {
-      const fileUrl = "portfolio-master/public/resume.pdf"; // Замените на путь к вашему файлу PDF
+      const fileUrl = "portfolio-master/public/resume.pdf";
       const link = document.createElement("a");
       link.href = fileUrl;
       link.setAttribute("download", "resume.pdf");
@@ -468,7 +383,7 @@ export default defineComponent({
     },
   },
   
-});
+  });
 
 </script>
 
